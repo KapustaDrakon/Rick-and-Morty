@@ -10,6 +10,7 @@ export function DataProvider({ children }) {
   const [isError, setIsError] = useState(false);
   const [info, setInfo] = useState({});
   const [apiURL, setApiURL] = useState(API_URL);
+  const [changePage, setChangePage] = useState(false);
 
   const fetchData = async (url) => {
     setIsFetching(true);
@@ -42,9 +43,11 @@ export function DataProvider({ children }) {
       characters,
       isFetching,
       isError,
-      info
+      info,
+      changePage,
+      setChangePage
     }),
-    [activePage, apiURL, characters, isFetching, isError, info]
+    [activePage, apiURL, characters, isFetching, isError, info, changePage]
   );
 
   return (

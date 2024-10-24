@@ -15,7 +15,8 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "react-select": "^5.4.0",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "vercel": "^37.12.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
