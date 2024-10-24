@@ -18,8 +18,6 @@ export function Card({
         onClickHandler(e);
         document.body.style.overflow = 'hidden';
         document.body.style.paddingRight = '15px';
-        console.log('Клик на картачку');
-        // console.log(document.getElementById('popup-container'));
         // document.getElementById('popup-container').focus();
       }}
     >

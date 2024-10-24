@@ -99,20 +99,6 @@ export const Filter = () => {
         }
       }
 
-      console.log(
-        name,
-        status,
-        species,
-        type,
-        gender,
-        ' / ',
-        nameParam,
-        statusParam,
-        speciesParam,
-        typeParam,
-        genderParam
-      );
-
       setApiURL(
         `https://rickandmortyapi.com/api/character/${params(
           nameParam,
@@ -145,7 +131,6 @@ export const Filter = () => {
   }, [activePage]);
 
   const onSubmit = (e) => {
-    console.log(name);
     e.preventDefault();
     window.history.pushState(
       null,

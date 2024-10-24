@@ -17,7 +17,6 @@ export function Popup({ settings: { visible, content = {} }, setSettings }) {
   } = content;
 
   function togglePopup(e) {
-    console.log(e.currentTarget, e.target);
     if (e.currentTarget !== e.target) {
       return;
     }
@@ -32,18 +31,12 @@ export function Popup({ settings: { visible, content = {} }, setSettings }) {
   }
 
   function pressEsc(e) {
-    console.log(e.key);
     if (e.key === 'Escape') return togglePopup(e);
   }
 
   return (
     <PopupContainer visible={visible} onClick={(e) => togglePopup(e)}>
-      <StyledPopup
-        id="popup-container"
-        tabIndex={-1}
-        onKeyDown={pressEsc}
-        onFocus={() => console.log('focus')}
-      >
+      <StyledPopup id="popup-container" tabIndex={-1} onKeyDown={pressEsc}>
         <CloseIcon onClick={togglePopup} />
 
         <PopupHeader
