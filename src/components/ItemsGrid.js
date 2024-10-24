@@ -18,7 +18,6 @@ export function ItemsGrid() {
       visible: true,
       content: { ...props }
     });
-    console.log(props);
   }
 
   if (!characters.length) {
