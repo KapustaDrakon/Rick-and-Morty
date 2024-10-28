@@ -10,11 +10,11 @@ export const Filter = () => {
   const [gender, setGender] = useState('');
 
   const {
-    setApiURL,
     activePage,
     setActivePage,
     changePage,
-    setChangePage
+    setChangePage,
+    fetchData
   } = useData();
 
   const onChangeName = (e) => {
@@ -41,13 +41,13 @@ export const Filter = () => {
 
   const getURLParams = () => {
     let currentURL = window.location;
+    let nameParam = '';
+    let statusParam = '';
+    let speciesParam = '';
+    let typeParam = '';
+    let genderParam = '';
+    let pageParam = '';
     if (currentURL.search) {
-      let nameParam = '';
-      let statusParam = '';
-      let speciesParam = '';
-      let typeParam = '';
-      let genderParam = '';
-      let pageParam = '';
       let currentURLSearch = currentURL.search.slice(1).split('&');
 
       for (let i = 0; i < currentURLSearch.length; i++) {
@@ -98,18 +98,17 @@ export const Filter = () => {
           }
         }
       }
-
-      setApiURL(
-        `https://rickandmortyapi.com/api/character/${params(
-          nameParam,
-          statusParam,
-          speciesParam,
-          typeParam,
-          genderParam,
-          activePage + 1
-        )}`
-      );
     }
+    return fetchData(
+      `https://rickandmortyapi.com/api/character/${params(
+        nameParam,
+        statusParam,
+        speciesParam,
+        typeParam,
+        genderParam,
+        activePage + 1
+      )}`
+    );
   };
 
   const params = (name, status, species, type, gender, page) =>
@@ -126,7 +125,7 @@ export const Filter = () => {
     }${page ? 'page=' + page : ''}`;
 
   useEffect(() => {
-    setTimeout(() => getURLParams(), 0);
+    getURLParams();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activePage]);
 
@@ -137,7 +136,7 @@ export const Filter = () => {
       null,
       params(name, status, species, type, gender, 1)
     );
-    setApiURL(
+    fetchData(
       `https://rickandmortyapi.com/api/character/${params(
         name,
         status,
