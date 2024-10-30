@@ -1,1 +1,1 @@
-https://elfsight-test-task-kapustadrakon-kapustadrakons-projects.vercel.app - просмотр страницы (Vercel)
+https://rick-and-morty-kapustadrakon-kapustadrakons-projects.vercel.app/ - просмотр страницы (Vercel)
